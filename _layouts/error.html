@@ -1,0 +1,86 @@
+---
+layout: default
+---
+
+<div id="main" class="error-layout" role="main">
+  {% if page.title %}
+    <header class="page__title">
+      <h1 class="page__title-text" itemprop="headline">{{ page.title }}</h1>
+    </header>
+  {% endif %}
+
+  <section class="page__content" itemprop="text">
+    {{ content }}
+  </section>
+</div>
+
+<style>
+.error-layout {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+  padding: 0 1em;
+  min-height: 600px; /* Adjusted for 720p height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.page__title {
+  text-align: center;
+  margin: 1.5em 0;
+}
+
+.page__title-text {
+  margin-top: 0;
+  color: var(--text-color);
+  font-size: 1.5rem; /* Reduced from default */
+}
+
+.page__content {
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  float: none;
+  font-size: 0.9rem; /* Base font size reduced */
+}
+
+/* Override any default sidebar styles */
+.sidebar, 
+.author__avatar, 
+.author__content, 
+.author__urls-wrapper {
+  display: none !important;
+}
+
+/* Override any default grid layout */
+.grid__item {
+  float: none;
+  width: 100%;
+  margin-left: 0;
+}
+
+/* Ensure full width on all screen sizes */
+@media (min-width: 80em) {
+  .error-layout {
+    width: 100%;
+    padding-right: 0;
+  }
+}
+
+/* Adjustments for smaller screens */
+@media (max-height: 720px) {
+  .error-layout {
+    min-height: 500px;
+  }
+  
+  .page__title {
+    margin: 1em 0;
+  }
+  
+  .page__title-text {
+    font-size: 1.3rem;
+  }
+}
+</style> 

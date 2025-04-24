@@ -1,0 +1,7 @@
+- name: "English"
+  proficiency: "Bilingual Proficiency"
+  score: "TOEFL Score 457"
+
+- name: "Bahasa Indonesia"
+  proficiency: "Native Proficiency"
+  score: null

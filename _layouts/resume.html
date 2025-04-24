@@ -1,0 +1,427 @@
+---
+layout: default
+---
+
+<div class="resume-container">
+  <h1 class="page-title">{{ page.title }}</h1>
+
+  <!-- Professional Experience Section -->
+  <section class="resume-section experience-section">
+    <div class="section-header">
+      <i class="fas fa-briefcase"></i>
+      <h2>Professional Experience</h2>
+    </div>
+    <div class="experience-cards">
+      {% assign sorted_experience = site.data.experience | sort: "date_start" | reverse %}
+      {% for exp in sorted_experience %}
+        <div class="experience-card">
+          <div class="card-accent"></div>
+          <div class="card-header">
+            {% if exp.logo %}
+              <img src="{{ exp.logo | relative_url }}" alt="{{ exp.company }} logo" class="company-logo">
+            {% endif %}
+            <div class="header-content">
+              <div class="header-grid">
+                <div class="header-info">
+                  <h3>{{ exp.position }}</h3>
+                  <div class="company-info">
+                    <span class="company-name">{{ exp.company }}</span>
+                    <span class="location">{{ exp.location }}</span>
+                  </div>
+                </div>
+                <div class="date-range">
+                  {{ exp.date_start | date: "%b %Y" }} - 
+                  {% if exp.date_end == "Present" %}
+                    Present
+                  {% else %}
+                    {{ exp.date_end | date: "%b %Y" }}
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <ul class="description-list">
+              {% for item in exp.description %}
+                <li>{{ item }}</li>
+              {% endfor %}
+            </ul>
+            {% if exp.tools %}
+              <div class="tools">
+                <strong>Tools:</strong> {{ exp.tools }}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section class="resume-section education-section">
+    <div class="section-header">
+      <i class="fas fa-graduation-cap"></i>
+      <h2>Education</h2>
+    </div>
+    <div class="education-cards">
+      {% assign sorted_education = site.data.education | sort: "date_start" | reverse %}
+      {% for edu in sorted_education %}
+        <div class="education-card">
+          <div class="card-accent"></div>
+          <div class="card-header">
+            {% if edu.logo %}
+              <img src="{{ edu.logo | relative_url }}" alt="{{ edu.institution }} logo" class="institution-logo">
+            {% endif %}
+            <div class="header-content">
+              <div class="header-grid">
+                <div class="header-info">
+                  <h3>{{ edu.degree }}</h3>
+                  <div class="institution-info">
+                    <span class="institution-name">{{ edu.institution }}</span>
+                    <span class="location">{{ edu.location }}</span>
+                  </div>
+                </div>
+                <div class="date-range">
+                  {{ edu.date_start }} - {{ edu.date_end }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            {% if edu.gpa %}
+              <div class="gpa">GPA: {{ edu.gpa }}</div>
+            {% endif %}
+            {% if edu.description %}
+              <p class="education-description">{{ edu.description }}</p>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- Organizations Section -->
+  <section class="resume-section organizations-section">
+    <div class="section-header">
+      <i class="fas fa-users"></i>
+      <h2>Organizations & Achievements</h2>
+    </div>
+    <div class="organizations-grid">
+      {% assign sorted_orgs = site.data.organizations | sort: "year" | reverse %}
+      {% for org in sorted_orgs %}
+        <div class="organization-card">
+          {% if org.image %}
+            <div class="org-icon">
+              <img src="{{ org.image | relative_url }}" alt="{{ org.name }} icon" class="org-image">
+            </div>
+          {% else %}
+            <div class="org-icon">
+              <i class="{{ org.icon }}"></i>
+            </div>
+          {% endif %}
+          <div class="org-content">
+            <h3>{{ org.name }}</h3>
+            <div class="org-role">{{ org.role }}</div>
+            <div class="org-year">{{ org.year }}</div>
+            {% if org.description %}
+              <div class="org-description">{{ org.description }}</div>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- Languages Section -->
+  <section class="resume-section languages-section">
+    <div class="section-header">
+      <i class="fas fa-language"></i>
+      <h2>Languages</h2>
+    </div>
+    <div class="languages-grid">
+      {% for lang in site.data.languages %}
+        <div class="language-card">
+          <h3>{{ lang.name }}</h3>
+          <div class="proficiency">{{ lang.proficiency }}</div>
+          {% if lang.score %}
+            <div class="score">{{ lang.score }}</div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+
+<style>
+/* Base Styles */
+.resume-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 1.6rem;
+  color: var(--text-color);
+  margin-bottom: 2.5rem;
+}
+
+/* Section Styles */
+.resume-section {
+  margin-bottom: 3rem;  /* Reduced from 4rem */
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.section-header i {
+  font-size: 1.3rem;
+  margin-right: 1rem;
+  color: #a8d8ea;
+}
+
+.section-header h2 {
+  color: var(--text-color);
+  font-size: 1.1rem;
+  margin: 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #a8d8ea;
+}
+
+/* Card Header Grid */
+.header-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  width: 100%;
+  align-items: start;
+}
+
+.header-info {
+  min-width: 0;  /* Allows text truncation */
+}
+
+/* Card Styles */
+.experience-card, .education-card {
+  background: white;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-accent {
+  height: 4px;
+  background: #a8d8ea;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.card-header {
+  padding: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.company-logo, .institution-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin-right: 1rem;
+}
+
+.header-content {
+  flex: 1;
+  min-width: 0;  /* Allows text truncation */
+}
+
+.header-content h3 {
+  margin: 0 0 0.5rem 0;
+  color: var(--text-color);
+  font-size: 1.1rem;
+}
+
+.company-info, .institution-info {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.company-name, .institution-name {
+  font-weight: 500;
+  margin-right: 1rem;
+}
+
+.location {
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+.date-range {
+  color: var(--text-color);
+  opacity: 0.8;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.card-body {
+  padding: 1.5rem;
+  font-size: 0.8rem;
+}
+
+.description-list {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.description-list li {
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.tools {
+  color: var(--text-color);
+  font-size: 0.8rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Organizations Grid */
+.organizations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.organization-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.org-icon {
+  width: 48px;  /* Fixed width */
+  height: 48px; /* Fixed height to maintain 1:1 ratio */
+  flex-shrink: 0; /* Prevent icon from shrinking */
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.org-icon i {
+  color: #a8d8ea;
+  font-size: 1.2rem;
+}
+
+.org-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Changed from cover to contain to preserve aspect ratio */
+}
+
+.org-content h3 {
+  margin: 0 0 0.5rem 0;
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+.org-role {
+  color: var(--text-color);
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.org-year {
+  color: var(--text-color);
+  opacity: 0.8;
+  font-size: 0.8rem;
+}
+
+/* Languages Grid */
+.languages-section{
+  margin-bottom: 0;
+}
+
+.languages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.language-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.2rem;
+  border: 2px solid #a8d8ea;
+}
+
+.language-card h3 {
+  margin: 0 0 0.5rem 0;
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+.proficiency {
+  color: var(--text-color);
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.score {
+  color: var(--text-color);
+  opacity: 0.8;
+  font-size: 0.8rem;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .languages-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .resume-container {
+    padding: 1rem;
+  }
+
+  .organizations-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .languages-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card-header {
+    flex-direction: column;
+  }
+
+  .company-logo, .institution-logo {
+    margin-bottom: 1rem;
+  }
+
+  .header-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .date-range {
+    text-align: left;
+  }
+}
+</style> 
