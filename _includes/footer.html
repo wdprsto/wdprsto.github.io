@@ -1,0 +1,99 @@
+<div class="page__footer">
+  <div class="footer-line"></div>
+  <div class="page__footer-content">
+    <div class="social-icons">
+      {% if site.author.linkedin %}
+        <a href="{{ site.author.linkedin }}" rel="nofollow noopener noreferrer" target="_blank">
+          <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i>
+        </a>
+    {% endif %}
+
+      {% if site.author.github %}
+        <a href="{{ site.author.github }}" rel="nofollow noopener noreferrer" target="_blank">
+          <i class="fab fa-fw fa-github" aria-hidden="true"></i>
+        </a>
+    {% endif %}
+
+      {% if site.author.twitter %}
+        <a href="{{ site.author.twitter }}" rel="nofollow noopener noreferrer" target="_blank">
+          <i class="fab fa-fw fa-twitter" aria-hidden="true"></i>
+        </a>
+      {% endif %}
+    </div>
+
+    <div class="page__footer-copyright">
+      &copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}. 
+      Built with <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a>
+    </div>
+  </div>
+</div>
+
+<style>
+.page__footer {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  padding: 0.5rem 0;
+  font-size: 0.85rem;
+  margin-top: 2rem;
+  position: relative;
+}
+
+.footer-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--text-color, #2B4F60) 20%, var(--text-color, #2B4F60) 80%, transparent);
+  opacity: 0.2;
+}
+
+.page__footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  
+  a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    
+    &:hover {
+      color: var(--secondary-color);
+    }
+    
+    i {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.page__footer-copyright {
+  color: var(--text-color);
+  opacity: 0.9;
+  
+  a {
+    color: var(--text-color);
+    text-decoration: none;
+    
+    &:hover {
+      color: var(--secondary-color);
+      text-decoration: underline;
+    }
+  }
+}
+</style>

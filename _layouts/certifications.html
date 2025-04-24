@@ -1,0 +1,320 @@
+---
+layout: default
+---
+
+<div class="certifications-container">
+  <div class="profile-section">
+    <div class="profile-image">
+      <img src="/assets/images/pas_foto_wahyu.jpeg" alt="{{ site.author.name }}">
+    </div>
+    <div class="profile-info">
+      <h2 class="profile-name">{{ site.author.name }}</h2>
+      <p class="profile-role">{{ site.author.bio }}</p>
+    </div>
+  </div>
+
+  <h1 class="section-title">Certifications</h1>
+  
+  <div class="certifications-grid">
+    {% assign sorted_by_date = site.data.certifications | sort: "date" | reverse %}
+    {% assign sorted_certifications = sorted_by_date | sort: "priority" %}
+    {% for certification in sorted_certifications %}
+      {% unless certification.name contains "Example" or certification.name contains "Certification Name" %}
+        <div class="certification-card">
+          <div class="certification-image">
+            {% if certification.image %}
+              <a href="{{ certification.image | relative_url }}" class="image-popup">
+                <img src="{{ certification.image | relative_url }}" alt="{{ certification.name }}" class="cert-img">
+                <div class="image-overlay">
+                  <i class="fas fa-search-plus"></i>
+                </div>
+              </a>
+            {% else %}
+              <img src="/assets/images/default-certification.jpg" alt="{{ certification.name }}" class="cert-img">
+            {% endif %}
+          </div>
+          <div class="certification-content">
+            {% if certification.issuer_logo %}
+              <img src="{{ certification.issuer_logo | relative_url }}" alt="{{ certification.issuer }}" class="issuer-logo">
+            {% else %}
+              <div class="issuer-name">{{ certification.issuer }}</div>
+            {% endif %}
+            <h3>{{ certification.name }}</h3>
+            {% if certification.category %}
+              <div class="category-tag">{{ certification.category }}</div>
+            {% endif %}
+            <div class="meta-info">
+              <p>Issued: {{ certification.date | date: "%b %Y" }}</p>
+              {% if certification.expiry %}
+                <p>Valid until: {{ certification.expiry | date: "%b %Y" }}</p>
+              {% endif %}
+            </div>
+            {% if certification.verification_link %}
+              <button onclick="window.open('{{ certification.verification_link }}', '_blank')" class="verify-button">
+                <i class="fas fa-external-link-alt"></i> 
+                <span>Verify Certificate</span>
+              </button>
+            {% endif %}
+          </div>
+        </div>
+      {% endunless %}
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+.certifications-container {
+  flex: 1 0 auto;
+}
+
+.profile-section {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-top: 2rem;
+}
+
+.profile-image {
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--primary-color);
+}
+
+.profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-info {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.profile-name {
+  font-size: 1.5rem;
+  font-weight: 650;
+  color: var(--text-color);
+  margin: 0 0 0.5rem 0;
+}
+
+.profile-role {
+  font-size: 1rem;
+  color: var(--text-color);
+  font-weight: 400;
+  margin: 0;
+}
+
+.section-title {
+  text-align: center;
+  color: var(--text-color);
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 0 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.certification-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.certification-card:hover {
+  transform: translateY(-5px);
+}
+
+.certification-image {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  margin: -1.5rem -1.5rem 1rem -1.5rem;
+  border-radius: 12px 12px 0 0;
+}
+
+.certification-image a {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.cert-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-overlay i {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.certification-image:hover .image-overlay {
+  opacity: 1;
+}
+
+.certification-image:hover .cert-img {
+  transform: scale(1.05);
+}
+
+.certification-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.issuer-logo {
+  height: 25px;
+  object-fit: contain;
+  margin-bottom: 0.75rem;
+}
+
+.issuer-name {
+  color: var(--text-color);
+  opacity: 0.8;
+  font-size: 0.8rem;
+  margin-bottom: 0.75rem;
+}
+
+.certification-content h3 {
+  margin: 0 0 0.5rem 0;
+  color: var(--text-color);
+  font-size: 1rem;
+  line-height: 1.4;
+  padding: 0 0.5rem;
+}
+
+.category-tag {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  background: rgba(168, 216, 234, 0.2);
+  color: var(--text-color);
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.meta-info {
+  color: var(--text-color);
+  opacity: 0.8;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.meta-info p {
+  margin: 0 0 0.2rem 0;
+}
+
+/* valid button  */
+.verify-button {
+  display: inline-block;
+  padding: 0.4em 0.8em;
+  margin: 0;
+  font-family: var(--global-font-family);
+  font-size: 0.8em;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border-width: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #a8d8ea;
+  color: #3d4144;
+  width: 100%;
+  transition: all 0.2s ease-in-out;
+}
+
+.verify-button:hover {
+  background: rgb(134.4,172.8,187.2);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.verify-button i {
+  margin-right: 0.5rem;
+}
+
+.verify-button span {
+  line-height: 1;
+}
+
+@media (max-width: 768px) {
+  .profile-section {
+    padding-top: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .section-title {
+    margin-bottom: 1.5rem;
+  }
+
+  .certifications-grid {
+    padding: 0 1rem 2rem;
+  }
+
+  .profile-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-role {
+    font-size: 0.9rem;
+  }
+
+  .certification-card {
+    max-width: 100%;
+  }
+
+  .certification-content {
+    padding: 1rem;
+  }
+}
+</style>
+
+<script>
+$(document).ready(function() {
+  $('.image-popup').magnificPopup({
+    type: 'image',
+    closeOnContentClick: true,
+    closeBtnInside: false,
+    fixedContentPos: true,
+    mainClass: 'mfp-no-margins mfp-with-zoom',
+    image: {
+      verticalFit: true
+    },
+    zoom: {
+      enabled: true,
+      duration: 300
+    }
+  });
+});
+</script> 

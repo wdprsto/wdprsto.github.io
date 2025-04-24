@@ -1,0 +1,233 @@
+{% capture logo_path %}{{ site.logo }}{% endcapture %}
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="{{ '/' | relative_url }}">
+          <i class="fas fa-code"></i> Wahyu's Page
+        </a>
+        <ul class="visible-links">
+          {% for link in site.data.navigation.main %}
+            <li class="masthead__menu-item">
+              <a href="{{ link.url | relative_url }}" {% if page.url == link.url %}class="active"{% endif %}>{{ link.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+        <button class="greedy-nav__toggle" type="button">
+          <span class="visually-hidden">{{ site.data.ui-text[site.locale].menu_label | default: "Toggle menu" }}</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<style>
+.masthead {
+  border-bottom: 1px solid rgba(43, 79, 96, 0.1);
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.masthead__inner-wrap {
+  padding: 0.3rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.site-title {
+  font-size: 1.1em !important;
+  font-weight: bold;
+  color: var(--text-color) !important;
+  padding: 0.5rem 1rem !important;
+  
+  i {
+    margin-right: 0.5rem;
+    color: var(--primary-color);
+  }
+}
+
+.greedy-nav {
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  
+  a {
+    color: var(--text-color) !important;
+    opacity: 0.9;
+    padding: 0.6rem 1rem;
+    margin: 0;
+    text-decoration: none;
+    position: relative;
+    transition: opacity 0.2s ease;
+    
+    &:hover {
+      opacity: 1;
+    }
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: var(--primary-color);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+      transform-origin: center;
+    }
+    
+    &:hover::after {
+      transform: scaleX(0.8);
+    }
+    
+    &.active {
+      opacity: 1;
+      font-weight: 600;
+      
+      &::after {
+        transform: scaleX(1);
+        background-color: var(--primary-color);
+        opacity: 1;
+      }
+    }
+  }
+  
+  .visible-links {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    
+    li {
+      a.active::after {
+        transform: scaleX(1);
+        opacity: 1;
+      }
+    }
+  }
+
+  .greedy-nav__toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    padding: 0.4rem;
+    margin-left: 1rem;
+    cursor: pointer;
+    outline: none;
+    
+    .navicon {
+      background: var(--text-color);
+      display: block;
+      width: 1.5rem;
+      height: 2px;
+      position: relative;
+      transition: background 0.2s ease;
+      
+      &::before,
+      &::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: var(--text-color);
+        position: absolute;
+        transition: all 0.2s ease;
+      }
+      
+      &::before {
+        top: -6px;
+      }
+      
+      &::after {
+        bottom: -6px;
+      }
+    }
+    
+    &.close {
+      .navicon {
+        background: transparent;
+        
+        &::before {
+          transform: rotate(45deg);
+          top: 0;
+        }
+        
+        &::after {
+          transform: rotate(-45deg);
+          bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .greedy-nav {
+    .visible-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 0.3rem 0;
+      z-index: 20;
+      
+      &.show {
+        display: block;
+      }
+      
+      li {
+        display: block;
+        
+        a {
+          display: block;
+          padding: 0.6rem 1rem;
+          
+          &::after {
+            bottom: 0;
+            opacity: 1;
+          }
+          
+          &:hover {
+            background: rgba(0,0,0,0.05);
+          }
+          
+          &.active::after {
+            transform: scaleX(1);
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    .greedy-nav__toggle {
+      display: block;
+    }
+  }
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+</style>
+
+<script src="{{ '/assets/js/mobile-menu.js' | relative_url }}"></script>

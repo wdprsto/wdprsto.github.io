@@ -1,0 +1,51 @@
+# Sample certification entry format
+- name: "Certification Name"
+  issuer: "Issuing Organization"
+  date: "YYYY-MM-DD"
+  expiry: "YYYY-MM-DD"  # Optional
+  image: "/assets/images/certifications/certificate_1.jpg"
+  issuer_logo: "/assets/images/certifications/issuer_logo_1.png" # Optional
+  verification_link: "https://verify.certification.com/id"
+  priority: 0  # Lower number = higher priority
+
+# Add your actual certifications below this line
+# The certifications will be ordered by priority (lowest number first) and then by date (most recent first)
+
+- name: "Google Cloud Developer Essentials"
+  issuer: "Google Cloud"
+  date: "2024-05-01"
+  expiry: "2027-05-01"
+  image: "/assets/images/certifications/certificate_1.jpg"
+  issuer_logo: "/assets/images/certifications/google-cloud-logo.png"
+  verification_link: "https://google.com/verify"
+  priority: 1
+  category: "Cloud"
+
+- name: "ML Infrastructure"
+  issuer: "Google Cloud"
+  date: "2024-04-15"
+  expiry: "2027-04-15"
+  image: "/assets/images/certifications/certificate_1.jpg"
+  issuer_logo: "/assets/images/certifications/google-cloud-logo.png"
+  verification_link: "https://google.com/verify"
+  priority: 2
+  category: "Cloud"
+
+- name: "Workspace: Add-ons"
+  issuer: "Google Cloud"
+  date: "2024-03-20"
+  expiry: "2027-03-20"
+  image: "/assets/images/certifications/certificate_1.jpg"
+  issuer_logo: "/assets/images/certifications/google-cloud-logo.png"
+  verification_link: "https://google.com/verify"
+  priority: 3
+  category: "Cloud"
+# You can delete or comment out this sample certificate once you add your own
+# - name: "AWS Certified Solutions Architect"
+#   issuer: "Amazon Web Services"
+#   date: "2023-01-15"
+#   expiry: "2026-01-15"
+#   image: "/assets/images/certifications/aws-sa.jpg"
+#   issuer_logo: "/assets/images/certifications/aws-logo.png" 
+#   verification_link: "https://aws.amazon.com/verify"
+#   priority: 10 
