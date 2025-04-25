@@ -2,9 +2,7 @@
 title: "Sample Project Title"
 excerpt: "A brief description of the project that will appear in the portfolio grid."
 header:
-  teaser: /assets/images/portfolio/sample-project-thumb.jpg
-  overlay_image: /assets/images/portfolio/sample-project-header.jpg
-  overlay_filter: 0.5
+  overlay_filter: 1
 categories:
   - Web Development
 tags:
@@ -12,6 +10,8 @@ tags:
   - React
   - Node.js
 featured: false
+layout: single
+date: "2025-01-01"
 ---
 
 ## Project Overview

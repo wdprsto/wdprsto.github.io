@@ -110,3 +110,6 @@ screenshot-layouts.png
 screenshot.png
 ```
 - Jalankan bundle install untuk menginstall dependency dari file Gemfile
+
+# Notes
+- When a Jekyll page doesn't specify a layout, it falls back to the default defined in _config.yml for that collection type.
