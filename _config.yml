@@ -28,7 +28,7 @@ repository               : "wdprsto/wdprsto.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : "/assets/images/code-icon.png"  # Add a code icon here
 masthead_title           : " "
-breadcrumbs              : # true, false (default)
+breadcrumbs              : true #, false (default)
 words_per_minute         : 200
 enable_copy_code_button  : # true, false (default)
 copyright                : # "copyright" name, defaults to site.title
@@ -242,24 +242,6 @@ defaults:
       toc_sticky: true
       sidebar:
         nav: "docs"
-  # _recipes
-  - scope:
-      path: ""
-      type: recipes
-    values:
-      layout: single
-      author_profile: true
-      share: true
-      comments: true
-  # _pets
-  - scope:
-      path: ""
-      type: pets
-    values:
-      layout: single
-      author_profile: true
-      share: true
-      comment: true
   # _portfolio
   - scope:
       path: ""
@@ -375,16 +357,3 @@ variables:
   text-color: "#2B4F60"
   background-color: "#F1F9FB"
   accent-color: "#5885AF"
-
-# Navigation
-main:
-  - title: "Home"
-    url: /
-  - title: "Resume/CV"
-    url: /resume/
-  - title: "Portfolio"
-    url: /portfolio/
-  - title: "Certifications"
-    url: /certifications/
-  - title: "About"
-    url: /about/

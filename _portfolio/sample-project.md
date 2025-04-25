@@ -3,6 +3,7 @@ title: "Sample Project Title"
 excerpt: "A brief description of the project that will appear in the portfolio grid."
 header:
   overlay_filter: 1
+  image: /assets/images/unsplash-gallery-image-1.jpg
 categories:
   - Web Development
 tags:
@@ -10,8 +11,8 @@ tags:
   - React
   - Node.js
 featured: false
-layout: single
-date: "2025-01-01"
+layout: portfolio-detail
+date: "2023-05-15"
 ---
 
 ## Project Overview
