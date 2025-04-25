@@ -44,6 +44,7 @@
   font-weight: bold;
   color: var(--text-color) !important;
   padding: 0.5rem 1rem !important;
+  text-decoration: none !important;
 }
 
 .site-title i {
@@ -114,14 +115,26 @@
   opacity: 1;
 }
 
+/* Important: This ensures the toggle is never hidden by default */
 .greedy-nav__toggle {
-  display: none;
   background: transparent;
   border: none;
   padding: 0.4rem;
   margin-left: 1rem;
   cursor: pointer;
   outline: none;
+  z-index: 30;
+}
+
+/* Hide the toggle on large screens */
+@media screen and (min-width: 769px) {
+  .greedy-nav__toggle {
+    display: none !important;
+  }
+  
+  .greedy-nav .hidden-links {
+    display: none !important;
+  }
 }
 
 .greedy-nav__toggle .navicon {
@@ -166,7 +179,12 @@
   bottom: 0;
 }
 
+/* Hide the visible-links and display hamburger on mobile */
 @media screen and (max-width: 768px) {
+  .greedy-nav {
+    position: relative;
+  }
+
   .greedy-nav .visible-links {
     display: none;
     position: absolute;
@@ -190,6 +208,7 @@
   .greedy-nav .visible-links li a {
     display: block;
     padding: 0.6rem 1rem;
+    width: 100%;
   }
   
   .greedy-nav .visible-links li a::after {
@@ -206,10 +225,14 @@
     opacity: 1;
   }
 
+  /* Explicitly ensure toggle is visible */
   .greedy-nav__toggle {
     display: block !important;
-    position: relative;
-    z-index: 30;
+  }
+  
+  /* Make sure toggle never gets hidden class */
+  .greedy-nav__toggle.hidden {
+    display: block !important;
   }
 }
 
@@ -227,15 +250,61 @@
 </style>
 
 <script>
+// Wait until the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', function() {
   const toggle = document.querySelector('.greedy-nav__toggle');
   const visibleLinks = document.querySelector('.visible-links');
   
   if (toggle && visibleLinks) {
-    toggle.addEventListener('click', function() {
+    // Remove the 'hidden' class if it was added to the toggle
+    toggle.classList.remove('hidden');
+    
+    // Handle click events on the toggle button
+    toggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
       visibleLinks.classList.toggle('show');
       toggle.classList.toggle('close');
     });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+      if (visibleLinks.classList.contains('show') && 
+          !visibleLinks.contains(e.target) && 
+          e.target !== toggle) {
+        visibleLinks.classList.remove('show');
+        toggle.classList.remove('close');
+      }
+    });
+    
+    // Properly handle resize events
+    window.addEventListener('resize', function() {
+      // Remove hidden class from toggle on smaller screens
+      if (window.innerWidth <= 768) {
+        toggle.classList.remove('hidden');
+        toggle.style.display = 'block';
+      } else {
+        visibleLinks.classList.remove('show');
+        toggle.classList.remove('close');
+      }
+    });
+    
+    // Initialize on page load
+    if (window.innerWidth <= 768) {
+      toggle.classList.remove('hidden');
+      toggle.style.display = 'block';
+    }
   }
+  
+  // Remove any hidden class that might be added dynamically
+  setInterval(function() {
+    if (window.innerWidth <= 768) {
+      const toggle = document.querySelector('.greedy-nav__toggle');
+      if (toggle && toggle.classList.contains('hidden')) {
+        toggle.classList.remove('hidden');
+        toggle.style.display = 'block';
+      }
+    }
+  }, 100);
 });
 </script>

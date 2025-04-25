@@ -21,7 +21,7 @@ gallery:
   - url: /assets/images/unsplash-gallery-image-3.jpg
     image_path: assets/images/unsplash-gallery-image-3-th.jpg
     alt: "placeholder image 3"
-featured: false
+featured: true
 layout: portfolio-detail
 date: "2022-09-05"
 ---
