@@ -1,8 +1,29 @@
 - institution: "Universitas Bengkulu"
-  degree: "S.Kom. Informatika"
-  logo: "/assets/images/education/ucl-logo.svg"
+  degree: "Informatics (B.Sc)"
+  logo: "/assets/images/education/unib-logo.png"
   location: "Bengkulu, ID"
   date_start: "Aug 2019"
   date_end: "Jan 2024"
   gpa: "3.93/4.0"
-  description: "MSc is 8th Ranked University Worldwide according to QS Ranking 2019"
+  description: "Activities and societies: Informatics Student Association, Lab Assistant, Student Organization; Focus on Intelligent Computing during the final year"
+  priority: 1
+
+- institution: "Bangkit Academy 2022 by Google, Traveloka, Gojek, Tokopedia"
+  degree: "Machine Learning Learning Path"
+  logo: "/assets/images/education/bangkit-logo.png"
+  location: null
+  date_start: "Feb 2022"
+  date_end: "Jul 2022"
+  gpa: "95.8/100"
+  description: "Learn the key concepts and applications of AI to solve a wide range of ML problems with these specializations; Graduate with Distinction (top 3% among others)"
+  priority: 3
+
+- institution: "Pacmann.AI - Skill Upgrader Basic"
+  degree: "Data Analyst"
+  logo: "/assets/images/education/pacmann-logo.png"
+  location: null
+  date_start: "Aug 2024"
+  date_end: "Aug 2025"
+  gpa: null
+  description: "A comprehensive upskilling program in data and analytics, covering business analytics, statistics, and forecasting."  
+  priority: 2

@@ -14,8 +14,8 @@ layout: default
       <a href="{{ project.url | relative_url }}" class="portfolio-card-link">
         <div class="portfolio-card">
           <div class="card-thumbnail">
-            {% if project.header.teaser %}
-              <img src="{{ project.header.teaser | relative_url }}" alt="{{ project.title }}">
+            {% if project.header.image %}
+              <img src="{{ project.header.image | relative_url }}" alt="{{ project.title }}">
             {% else %}
               <img src="/assets/images/placeholder-project.svg" alt="{{ project.title }}" class="placeholder-img">
             {% endif %}

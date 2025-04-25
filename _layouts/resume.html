@@ -12,7 +12,7 @@ layout: default
       <h2>Professional Experience</h2>
     </div>
     <div class="experience-cards">
-      {% assign sorted_experience = site.data.experience | sort: "date_start" | reverse %}
+      {% assign sorted_experience = site.data.experience | sort: "date_end" | reverse %}
       {% for exp in sorted_experience %}
         <div class="experience-card">
           <div class="card-accent"></div>
@@ -43,7 +43,7 @@ layout: default
           <div class="card-body">
             <ul class="description-list">
               {% for item in exp.description %}
-                <li>{{ item }}</li>
+                <li>{{ item  | markdownify }}</li>
               {% endfor %}
             </ul>
             {% if exp.tools %}
@@ -64,7 +64,7 @@ layout: default
       <h2>Education</h2>
     </div>
     <div class="education-cards">
-      {% assign sorted_education = site.data.education | sort: "date_start" | reverse %}
+      {% assign sorted_education = site.data.education | sort: "priority" %}
       {% for edu in sorted_education %}
         <div class="education-card">
           <div class="card-accent"></div>
@@ -283,8 +283,9 @@ layout: default
   margin-bottom: 1rem;
 }
 
-.description-list li {
+.description-list li>p {
   margin-bottom: 0.5rem;
+  margin-top:0rem;
   color: var(--text-color);
 }
 

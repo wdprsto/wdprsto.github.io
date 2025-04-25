@@ -1,6 +1,7 @@
 linkedin:
   name: LinkedIn
   followers: 4000+
+  id: wahyudwiprasetio
   description: Professional profile and connections
   url: https://linkedin.com/in/wahyudwiprasetio
   icon: fab fa-linkedin
@@ -8,6 +9,7 @@ linkedin:
 medium:
   name: Medium
   followers: 2000+
+  id: wahyudprasetio
   description: Personal medium blog
   url: https://medium.com/@wahyudprasetio
   icon: fab fa-medium 
@@ -15,6 +17,7 @@ medium:
 github:
   name: Github
   followers: 2000+
+  id: wdprsto
   description: Personal github repository
   url: https://github.com/wdprsto
   icon: fab fa-github 

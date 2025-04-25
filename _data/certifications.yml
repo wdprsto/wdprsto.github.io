@@ -1,45 +1,88 @@
-# Sample certification entry format
-- name: "Certification Name"
-  issuer: "Issuing Organization"
-  date: "YYYY-MM-DD"
-  expiry: "YYYY-MM-DD"  # Optional
-  image: "/assets/images/certifications/certificate_1.jpg"
-  issuer_logo: "/assets/images/certifications/issuer_logo_1.png" # Optional
-  verification_link: "https://verify.certification.com/id"
-  priority: 0  # Lower number = higher priority
+# # Sample certification entry format
+# - name: "Certification Name"
+#   issuer: "Issuing Organization"
+#   date: "YYYY-MM-DD"
+#   expiry: "YYYY-MM-DD"  # Optional
+#   image: "/assets/images/certifications/certificate_1.jpg"
+#   issuer_logo: "/assets/images/certifications/issuer_logo_1.png" # Optional
+#   verification_link: "https://verify.certification.com/id"
+#   priority: 0  # Lower number = higher priority
 
 # Add your actual certifications below this line
 # The certifications will be ordered by priority (lowest number first) and then by date (most recent first)
 
-- name: "Google Cloud Developer Essentials"
-  issuer: "Google Cloud"
-  date: "2024-05-01"
-  expiry: "2027-05-01"
-  image: "/assets/images/certifications/certificate_1.jpg"
-  issuer_logo: "/assets/images/certifications/google-cloud-logo.png"
-  verification_link: "https://google.com/verify"
-  priority: 1
-  category: "Cloud"
-
-- name: "ML Infrastructure"
-  issuer: "Google Cloud"
-  date: "2024-04-15"
-  expiry: "2027-04-15"
-  image: "/assets/images/certifications/certificate_1.jpg"
-  issuer_logo: "/assets/images/certifications/google-cloud-logo.png"
-  verification_link: "https://google.com/verify"
-  priority: 2
-  category: "Cloud"
-
-- name: "Workspace: Add-ons"
-  issuer: "Google Cloud"
-  date: "2024-03-20"
-  expiry: "2027-03-20"
-  image: "/assets/images/certifications/certificate_1.jpg"
-  issuer_logo: "/assets/images/certifications/google-cloud-logo.png"
-  verification_link: "https://google.com/verify"
+- name: "SQL (Advanced) Certificate"
+  issuer: "Hackerrank"
+  date: "2025-04-04"
+  image: "/assets/images/certifications/hackerrank-sql-cert.png"
+  issuer_logo: "/assets/images/certifications/hackerrank-logo.png"
+  verification_link: "https://www.hackerrank.com/certificates/e61ed33efdd5"
   priority: 3
-  category: "Cloud"
+  category: "Data"
+
+- name: "Google Data Analytics"
+  issuer: "Coursera - Google"
+  date: "2022-09-15"
+  image: "/assets/images/certifications/google-data analytics-cert.jpg"
+  issuer_logo: "/assets/images/certifications/google-logo.png"
+  verification_link: "https://www.coursera.org/account/accomplishments/specialization/certificate/ZY6C8W4A6FUB"
+  priority: 2
+  category: "Data"
+
+- name: "Google IT Automation with Python"
+  issuer: "Google"
+  date: "2022-11-03"
+  image: "/assets/images/certifications/google-it automation-cert.jpg"
+  issuer_logo: "/assets/images/certifications/google-logo.png"
+  verification_link: "https://www.coursera.org/account/accomplishments/specialization/certificate/YXFJFQUF6RZF/"
+  priority: 3
+  category: "Data"
+
+- name: "TensorFlow Developer Certificate"
+  issuer: "TensorFlow"
+  date: "2022-08-22"
+  expiry: "2025-08-22"
+  image: "/assets/images/certifications/tensorflow-dev-cert.jpg"
+  issuer_logo: "/assets/images/certifications/tensorflow-logo.png"
+  verification_link: "https://www.credential.net/d0ecc097-7548-457e-b1c4-223d2b6de742"
+  priority: 1
+  category: "Machine Learning"
+
+- name: "DeepLearning.AI TensorFlow Developer"
+  issuer: "DeepLearning.AI"
+  date: "2023-04-23"
+  image: "/assets/images/certifications/dl-tfdc-cert.jpg"
+  issuer_logo: "/assets/images/certifications/deeplearning-ai-logo.png"
+  verification_link: "https://www.coursera.org/account/accomplishments/specialization/certificate/9VFHQJE64VJK/"
+  priority: 99
+  category: "Machine Learning"
+
+- name: "DeepLearning.AI TensorFlow Data & Deployment"
+  issuer: "DeepLearning.AI"
+  date: "2023-04-22"
+  image: "/assets/images/certifications/dl-tfdd-cert.jpg"
+  issuer_logo: "/assets/images/certifications/deeplearning-ai-logo.png"
+  verification_link: "https://www.coursera.org/account/accomplishments/specialization/certificate/J5URD8T67DLG/"
+  priority: 99
+  category: "Machine Learning"
+
+- name: "DeepLearning.AI Machine Learning"
+  issuer: "DeepLearning.AI"
+  date: "2023-08-05"
+  image: "/assets/images/certifications/dl-machine learning-cert.jpg"
+  issuer_logo: "/assets/images/certifications/deeplearning-ai-logo.png"
+  verification_link: "https://www.coursera.org/account/accomplishments/specialization/certificate/DPUMRSWV5MZE"
+  priority: 2
+  category: "Machine Learning"
+
+- name: "Google IT Support"
+  issuer: "Google"
+  date: "2022-09-01"
+  image: "/assets/images/certifications/google-it support-cert.jpg"
+  issuer_logo: "/assets/images/certifications/google-logo.png"
+  verification_link: "https://www.coursera.org/account/accomplishments/specialization/certificate/S6FWLUFNN37N/"
+  priority: 3
+  category: "IT"
 # You can delete or comment out this sample certificate once you add your own
 # - name: "AWS Certified Solutions Architect"
 #   issuer: "Amazon Web Services"

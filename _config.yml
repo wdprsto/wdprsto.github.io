@@ -117,22 +117,9 @@ author:
   name             : "Wahyu Dwi Prasetio"
   avatar           : "/assets/images/pas_foto_wahyu.jpeg"
   bio              : "Business Data Analyst"
-  location         : "Jakarta, Indonesia"
+  location         : "Bengkulu, Indonesia"
   email            : "career.wahyudwi@gmail.com"
-  whatsapp         : "6281234567890"
-  links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:your.email@domain.com"
-    - label: "LinkedIn"
-      icon: "fab fa-fw fa-linkedin"
-      url: "https://linkedin.com/in/yourprofile"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/yourusername"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/yourusername"
+  whatsapp         : "6285157742502"
 
 # Site Footer
 footer:

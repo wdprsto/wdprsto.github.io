@@ -16,52 +16,57 @@ layout: default
   <h1 class="section-title">Certifications</h1>
   
   <div class="certifications-grid">
-    {% assign sorted_by_date = site.data.certifications | sort: "date" | reverse %}
-    {% assign sorted_certifications = sorted_by_date | sort: "priority" %}
-    {% for certification in sorted_certifications %}
-      {% unless certification.name contains "Example" or certification.name contains "Certification Name" %}
-        <div class="certification-card">
-          <div class="certification-image">
-            {% if certification.image %}
-              <a href="{{ certification.image | relative_url }}" class="image-popup">
-                <img src="{{ certification.image | relative_url }}" alt="{{ certification.name }}" class="cert-img">
-                <div class="image-overlay">
-                  <i class="fas fa-search-plus"></i>
-                </div>
-              </a>
-            {% else %}
-              <img src="/assets/images/default-certification.jpg" alt="{{ certification.name }}" class="cert-img">
-            {% endif %}
-          </div>
-          <div class="certification-content">
-            {% if certification.issuer_logo %}
-              <img src="{{ certification.issuer_logo | relative_url }}" alt="{{ certification.issuer }}" class="issuer-logo">
-            {% else %}
-              <div class="issuer-name">{{ certification.issuer }}</div>
-            {% endif %}
-            <h3>{{ certification.name }}</h3>
-            {% if certification.category %}
-              <div class="category-tag">{{ certification.category }}</div>
-            {% endif %}
-            <div class="meta-info">
-              <p>Issued: {{ certification.date | date: "%b %Y" }}</p>
-              {% if certification.expiry %}
-                <p>Valid until: {{ certification.expiry | date: "%b %Y" }}</p>
+    {% assign sorted_by_priority = site.data.certifications | sort: "priority" %}
+    {% assign grouped_by_priority = sorted_by_priority | group_by: "priority" %}
+  
+    {% for group in grouped_by_priority %}
+      {% assign certifications_by_date = group.items | sort: "date" | reverse %}
+  
+      {% for certification in certifications_by_date %}
+        {% unless certification.name contains "Example" or certification.name contains "Certification Name" %}
+          <div class="certification-card">
+            <div class="certification-image">
+              {% if certification.image %}
+                <a href="{{ certification.image | relative_url }}" class="image-popup">
+                  <img src="{{ certification.image | relative_url }}" alt="{{ certification.name }}" class="cert-img">
+                  <div class="image-overlay">
+                    <i class="fas fa-search-plus"></i>
+                  </div>
+                </a>
+              {% else %}
+                <img src="/assets/images/default-certification.jpg" alt="{{ certification.name }}" class="cert-img">
               {% endif %}
             </div>
-            {% if certification.verification_link %}
-              <button onclick="window.open('{{ certification.verification_link }}', '_blank')" class="verify-button">
-                <i class="fas fa-external-link-alt"></i> 
-                <span>Verify Certificate</span>
-              </button>
-            {% endif %}
+            <div class="certification-content">
+              {% if certification.issuer_logo %}
+                <img src="{{ certification.issuer_logo | relative_url }}" alt="{{ certification.issuer }}" class="issuer-logo">
+              {% else %}
+                <div class="issuer-name">{{ certification.issuer }}</div>
+              {% endif %}
+              <h3>{{ certification.name }}</h3>
+              {% if certification.category %}
+                <div class="category-tag">{{ certification.category }}</div>
+              {% endif %}
+              <div class="meta-info">
+                <p>Issued: {{ certification.date | date: "%b %Y" }}</p>
+                {% if certification.expiry %}
+                  <p>Valid until: {{ certification.expiry | date: "%b %Y" }}</p>
+                {% endif %}
+              </div>
+              {% if certification.verification_link %}
+                <button onclick="window.open('{{ certification.verification_link }}', '_blank')" class="verify-button">
+                  <i class="fas fa-external-link-alt"></i> 
+                  <span>Verify Certificate</span>
+                </button>
+              {% endif %}
+            </div>
           </div>
-        </div>
-      {% endunless %}
+        {% endunless %}
+      {% endfor %}
     {% endfor %}
   </div>
 </div>
-
+  
 <style>
 .certifications-container {
   flex: 1 0 auto;
