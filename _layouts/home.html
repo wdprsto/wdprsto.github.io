@@ -60,8 +60,8 @@ layout: default
   {% for project in sorted_portfolio limit:3 %}
     <div class="portfolio-card">
       <div class="portfolio-image">
-        {% if project.header.teaser %}
-          <img src="{{ project.header.teaser | relative_url }}" alt="{{ project.title }}">
+        {% if project.header.image %}
+          <img src="{{ project.header.image | relative_url }}" alt="{{ project.title }}">
         {% else %}
           <img src="/assets/images/default-project.jpg" alt="{{ project.title }}">
         {% endif %}
