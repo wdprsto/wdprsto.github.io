@@ -73,4 +73,4 @@ gallery:
 ---
 Tahun lalu, ada instansi X yang nggak nentuin lokasi penempatan waktu pengumuman awal 😱 Tapi apakah penempatannya bener-bener random?
 
-{% include gallery caption="Hasil analisis terhadap penempatan CPNS." %}
+{% include slideable-gallery caption="Hasil analisis terhadap penempatan CPNS." width="480px" %}

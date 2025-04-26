@@ -1,0 +1,77 @@
+{% if include.id %}
+  {% assign gallery = page[include.id] %}
+{% else %}
+  {% assign gallery = page.gallery %}
+{% endif %}
+
+{% if include.width %}
+  {% assign gallery_width = include.width %}
+{% else %}
+  {% assign gallery_width = "1000px" %}
+{% endif %}
+
+<div class="slideshow-container" style="max-width: {{ gallery_width }};">
+  {% for img in gallery %}
+    <div class="slide fade">
+      <div class="numbertext">{{ forloop.index }} / {{ gallery.size }}</div>
+      {% if img.url %}
+        <a href="{{ img.url | relative_url }}" {% if img.title %}title="{{ img.title }}"{% endif %}>
+          <img src="{{ img.image_path | relative_url }}" 
+               alt="{% if img.alt %}{{ img.alt }}{% endif %}" 
+               class="slide-image">
+        </a>
+      {% else %}
+        <img src="{{ img.image_path | relative_url }}" 
+             alt="{% if img.alt %}{{ img.alt }}{% endif %}" 
+             class="slide-image">
+      {% endif %}
+      {% if img.title %}
+        <div class="text">{{ img.title }}</div>
+      {% endif %}
+    </div>
+  {% endfor %}
+
+  <!-- Navigation arrows -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
+<!-- Dots/circles -->
+<!-- <div class="dots-container" style="text-align:center">
+  {% for img in gallery %}
+    <span class="dot" onclick="currentSlide({{ forloop.index }})"></span>
+  {% endfor %}
+</div> -->
+
+{% if include.caption %}
+  <figcaption style="text-align: center;">{{ include.caption | markdownify | remove: "<p>" | remove: "</p>" }}</figcaption>
+{% endif %}
+
+<script>
+  var slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("slide");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1;}    
+    if (n < 1) {slideIndex = slides.length;}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].className += " active";
+  }
+</script> 
