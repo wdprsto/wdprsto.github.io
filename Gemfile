@@ -2,7 +2,7 @@ source "https://rubygems.org"
 ruby ">= 3.1.0"  # Ensure compatibility with GitHub Actions and local environment
 
 gem "jekyll", "~> 4.4.1"
-gem "minimal-mistakes-jekyll"
+gem "minimal-mistakes-jekyll", "~> 4.27.0"
 gem "webrick", "~> 1.9.1"
 gem "rake", "~> 13.2.1"
 gem "sass-embedded", "~> 1.64.1"  # Use a version compatible with Ruby 3.1.x
