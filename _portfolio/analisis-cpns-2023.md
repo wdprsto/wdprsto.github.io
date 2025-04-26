@@ -1,5 +1,5 @@
 ---
-title: "Eksplorasi Penempatan CPNS Tahun 2023 pada Instansi X"
+title: "CPNS 2023 Placement Analysis Report"
 excerpt: "Tahun lalu, ada instansi X yang nggak nentuin lokasi penempatan waktu pengumuman awal 😱 Tapi apakah penempatannya bener-bener random?"
 header:
   image: assets/images/portfolios/porto-cpns-2023.png
@@ -8,6 +8,8 @@ date: "2025-04-10"
 featured: true
 tags:
   - Data Analysis
+  - Python
+  - Visualization
 gallery:
   - url: /assets/images/portfolios/1.png
     image_path:  /assets/images/portfolios/1.png
@@ -74,3 +76,5 @@ gallery:
 Tahun lalu, ada instansi X yang nggak nentuin lokasi penempatan waktu pengumuman awal 😱 Tapi apakah penempatannya bener-bener random?
 
 {% include slideable-gallery caption="Hasil analisis terhadap penempatan CPNS." width="480px" %}
+
+Analyzed placement data from CPNS 2023 by extracting and merging multiple PDFs (registration, selection results, final placements) to uncover key factors influencing placement decisions. Identified a strong correlation between province-level rankings and homebase placements, with most candidates from Sumatra and Java required to relocate to meet provincial quota distributions.
