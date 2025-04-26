@@ -1,0 +1,20 @@
+<div class="embed-card">
+  <a href="{{ include.url }}" target="_blank" class="embed-card-link">
+    <div class="embed-card-container">
+      <div class="embed-card-thumbnail">
+        {% if include.url contains 'youtube.com' or include.url contains 'youtu.be' %}
+        <div class="embed-card-play-button">
+          <div class="embed-card-play-icon"></div>
+        </div>
+        {% endif %}
+        <img src="{{ include.image }}" alt="{{ include.title }}">
+      </div>
+      <div class="embed-card-content">
+        <div class="embed-card-domain">{{ include.domain }}</div>
+        <div class="embed-card-title">{{ include.title }}</div>
+        <div class="embed-card-description">{{ include.description }}</div>
+      </div>
+    </div>
+  </a>
+</div>
+  
