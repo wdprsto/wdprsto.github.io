@@ -113,3 +113,8 @@ screenshot.png
 
 # Notes
 - When a Jekyll page doesn't specify a layout, it falls back to the default defined in _config.yml for that collection type.
+- to hard reset github commit, use:
+```
+git reset --hard HEAD~1
+git push origin main --force
+```
