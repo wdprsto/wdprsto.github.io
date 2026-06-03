@@ -78,3 +78,11 @@ Tahun lalu, ada instansi X yang nggak nentuin lokasi penempatan waktu pengumuman
 {% include slideable-gallery caption="Hasil analisis terhadap penempatan CPNS." width="480px" %}
 
 Analyzed placement data from CPNS 2023 by extracting and merging multiple PDFs (registration, selection results, final placements) to uncover key factors influencing placement decisions. Identified a strong correlation between province-level rankings and homebase placements, with most candidates from Sumatra and Java required to relocate to meet provincial quota distributions.
+
+{% include link-card.html 
+    url="https://prov-ranking-ma-24-check.streamlit.app/"
+    title="Data Integrasi SKD+SKB Mahkamah Agung"
+    description="Dashboard yang berisi analisis data terhadap hasil seleksi penerimaan CPNS di MA."
+    image="/assets/images/portfolios/porto-stis.webp"
+    domain="streamlit.app"
+%}
