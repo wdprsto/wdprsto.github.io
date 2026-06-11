@@ -47,3 +47,13 @@
     - "Developed and iterated revenue strategies using experimental results and external market data, targeting to AUM growth and achieving semester-based business targets."
     - "Designed and automated pricing execution based on dynamic time-segmented strategies, reducing manual workload and enabling real-time performance monitoring via a centralized dashboard."
   tools: "Python, SQL, Data Analytics, Data Scraping, Reporting & Analysis, Streamlit, Microsoft Excel, Tableau"
+
+- company: "Mahkamah Agung RI - Pengadilan Tinggi Jayapura"
+  position: "IT Support"
+  logo: "/assets/images/companies/logo_mari.png"
+  location: "Jayapura"
+  date_start: "2025-06-01"
+  date_end: "Now"
+  description:
+    - "Developed an integrated Employee Administration Information System to monitor periodic salary increases, promotions, and retirement schedules, reducing monitoring time by 50%."
+  tools: "PHP, CodeIgniter, Docker, Proxmox, System Administration, Mikrotik, Microsoft Office, Python, SQL, Data Scraping"
